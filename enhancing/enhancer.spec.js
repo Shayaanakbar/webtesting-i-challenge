@@ -1,12 +1,31 @@
-const enhancer = require('./enhancer.js');
-// test away!
+const { succeed, fail, repair, get } = require('./enhancer');
 
-describe('enhancer.js', () => {
-  describe('repair()', () => {
-    it('restores durability to 100', () => {
-      const item = {name: 'item one', durability: 130, enhancement: 3};
+describe('Enhancers', () => {
 
-      expect(enhancer.repair(item).durability).toBe(100);
-    });
-  });
-});
+  describe('repair function testing', () => {
+    it('should repair the item in need', () => {
+      const item =  {
+        name: 'gun',
+        enhancement: 10,
+        durability: 50
+      }
+
+      const superItem = {
+        name: 'sword',
+        enhancement: 10,
+        durability: 80
+      }
+
+      const randomItem = {
+        name: 'gun',
+        enhancement: 10,
+        durability: 100
+      }
+
+      const actual = repair(item);
+      const repairSword = repair(superItem);
+
+      expect(actual).toEqual(randomItem);
+    })
+  })
+})

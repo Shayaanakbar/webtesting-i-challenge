@@ -14,9 +14,7 @@ function fail(item) {
 }
 
 function repair(item) {
-  item = {...item, durability: 100}
-  return item;
-
+  return {...item, durability: 100}
 }
 
 function get(item) {
